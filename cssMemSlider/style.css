@@ -1,23 +1,59 @@
 :root {
   --rosely0: #27272a;
-  --rosely1: #615F5F;
-  --rosely2: #A49E9E;
-  --rosely3: #F4EEE8;
-  --rosely4: #EC809E;
-  --rosely5: #F7CACA;
-  --rosely6: #F8D7DD;
-  --rosely7: #F4DEDE;
-  --rosely8: #85677B;
-  --rosely9: #B565A7;
-  --roselyA: #BE9CC1;
-  --roselyB: #D2C4D6;
-  --roselyC: #D2386C;
-  --roselyD: #64BFA4;
-  --roselyE: #3CADD4;
-  --roselyF: #EADA4F;
+  --rosely1: #615f5f;
+  --rosely2: #a49e9e;
+  --rosely3: #f4eee8;
+  --rosely4: #ec809e;
+  --rosely5: #f7caca;
+  --rosely6: #f8d7dd;
+  --rosely7: #f4dede;
+  --rosely8: #85677b;
+  --rosely9: #b565a7;
+  --roselyA: #be9cc1;
+  --roselyB: #d2c4d6;
+  --roselyC: #d2386c;
+  --roselyD: #64bfa4;
+  --roselyE: #3cadd4;
+  --roselyF: #eada4f;
 }
 
 body {
   background-color: var(--rosely5);
   color: var(--rosely0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background-color: var(--rosely9);
+  margin: 0rem auto;
+  width: 50rem;
+  height: 100vh;
+  grid-template-columns: 1fr 5fr;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 1vh;
+  grid-template-rows: 50rem 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+  "wrapper-players wrapper-players wrapper-players"
+  "field1 field-header field2"
+  "field1 wrapper-gameField field2"
+  "field1 diceField field2";
+}
+
+.sliders {
+  display: block;
+  width: 100%;
+  height: 50rem;
 }
