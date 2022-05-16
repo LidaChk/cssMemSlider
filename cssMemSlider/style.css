@@ -126,11 +126,16 @@ div.control {
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all;
 }
 
 label {
   padding: 0.3rem;
-  transition: all var(--slide-duration) ease-out;
 }
 
 label:hover {
@@ -394,15 +399,15 @@ label:hover>.control {
 }
 
 
-@media only screen and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 1023px) {
   html {
-    font-size: 2vw;
+    font-size: 1.6vw;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media all and (max-width: 768px) {
   html {
-    font-size: 1.9vh;
+    font-size: 2.2vw;
   }
 
   .caption {
@@ -434,4 +439,16 @@ label:hover>.control {
   label {
     padding: 0.5rem;
   }
+
+  label:hover>.control {
+    filter: none;
+  }
+
+  label:active>.control {
+    filter: invert(90%);
+    -webkit-filter: invert(90%);
+    -moz-filter: invert(90%);
+    -webkit-filter: invert(90%);
+  }
+
 }
