@@ -62,13 +62,14 @@ input {
   opacity: 0;
   height: 0rem;
   width: 0rem;
+  visibility: hidden;
 }
 
 
 .slider {
   width: var(--mem-width);
   height: var(--mem-width);
-  grid-area: 'slider';
+  grid-area: slider;
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-template-rows: 1fr;
@@ -94,7 +95,6 @@ input {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 0rem;
 }
 
 .description {
@@ -171,11 +171,11 @@ label:hover>.control {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   opacity: 1;
   transform: scale(1);
-  transition: all var(--slide-duration) ease-in-out;
-  -webkit-transition: all var(--slide-duration) ease-in-out;
-  -moz-transition: all var(--slide-duration) ease-in-out;
-  -ms-transition: all var(--slide-duration) ease-in-out;
-  -o-transition: all var(--slide-duration) ease-in-out;
+  transition: opacity var(--slide-duration) ease-in-out, transform var(--slide-duration) ease;
+  -webkit-transition: opacity var(--slide-duration) ease-in-out, transform var(--slide-duration) ease;
+  -moz-transition: opacity var(--slide-duration) ease-in-out, transform var(--slide-duration) ease;
+  -ms-transition: opacity var(--slide-duration) ease-in-out, transform var(--slide-duration) ease;
+  -o-transition: opacity var(--slide-duration) ease-in-out, transform var(--slide-duration) ease;
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
@@ -322,7 +322,7 @@ label:hover>.control {
 
 /*  Grid Areas */
 .controls {
-  grid-area: 'controls';
+  grid-area: controls;
 }
 
 .slide1 {
@@ -336,8 +336,11 @@ label:hover>.control {
 }
 
 .slide3 {
-  background-image: URL(./assets/img/its-alive.png);
+  background-image: URL(./assets/img/paws-jaws.png);
   grid-area: slide3;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .slide4 {
@@ -388,4 +391,47 @@ label:hover>.control {
 
 #radio5 {
   grid-area: radio5;
+}
+
+
+@media only screen and (max-width: 1023px) {
+  html {
+    font-size: 2vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 1.9vh;
+  }
+
+  .caption {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5rem;
+    grid-template-areas: 'controls''description';
+    grid-area: caption;
+  }
+
+  .wrapper {
+    grid-template-rows: repeat(5, 0rem) var(--mem-width) 8rem;
+  }
+
+  .description,
+  .desc {
+    width: var(--mem-width);
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  div.control {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  label {
+    padding: 0.5rem;
+  }
 }
