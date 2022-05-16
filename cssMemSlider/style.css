@@ -1,30 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
 :root {
-  --rosely0: #27272a;
-  --rosely1: #615f5f;
-  --rosely2: #a49e9e;
-  --rosely3: #f4eee8;
-  --rosely4: #ec809e;
-  --rosely5: #f7caca;
-  --rosely6: #f8d7dd;
-  --rosely7: #f4dede;
-  --rosely8: #85677b;
-  --rosely9: #b565a7;
-  --roselyA: #be9cc1;
-  --roselyB: #d2c4d6;
-  --roselyC: #d2386c;
-  --roselyD: #64bfa4;
-  --roselyE: #3cadd4;
-  --roselyF: #eada4f;
+  --color-one: #b5ead7;
+  --color-two: #364b44;
+  --color-three: #99b0a8;
+  --color-four: #dedbff;
+  --color-five: #a6a4ca;
+  --bg-gradient: radial-gradient(circle,
+      #dedbff,
+      #cbe0ff,
+      #bae4ff,
+      #aee8f9,
+      #abeaec,
+      #a6e5e7,
+      #a1e1e3,
+      #9cdcde,
+      #93d0e1,
+      #94c2df,
+      #9cb3d8,
+      #a6a4ca);
+  --mem-width: 40rem;
+  --desc-width: 30rem;
+
 }
 
+
 body {
-  background-color: var(--rosely5);
-  color: var(--rosely0);
+  background-image: var(--bg-gradient);
+  color: var(--color-two);
+  font-family: 'Rubik', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -32,28 +42,212 @@ body {
 }
 
 .wrapper {
-  background-color: var(--rosely9);
   margin: 0rem auto;
-  width: 50rem;
+  width: var(--mem-width);
   height: 100vh;
-  grid-template-columns: 1fr 5fr;
-  overflow: hidden;
 }
+
 
 .wrapper {
   display: grid;
-  grid-gap: 1vh;
-  grid-template-rows: 50rem 1fr;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas:
-  "wrapper-players wrapper-players wrapper-players"
-  "field1 field-header field2"
-  "field1 wrapper-gameField field2"
-  "field1 diceField field2";
+  align-content: center;
+  justify-content: center;
+  grid-template-rows: repeat(5, 0rem) var(--mem-width) 5rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'radio1''radio2''radio3''radio4''radio5''slider''caption';
 }
 
-.sliders {
-  display: block;
-  width: 100%;
-  height: 50rem;
+input {
+  opacity: 0;
+  height: 0rem;
+  width: 0rem;
+}
+
+
+.slider {
+  width: var(--mem-width);
+  height: var(--mem-width);
+  grid-area: 'slider';
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: 1fr;
+  grid-template-areas: 'slide1 slide2 slide3 slide4 slide5';
+}
+
+.caption {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'description controls';
+  grid-area: caption;
+}
+
+
+
+.slides {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 0rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.description {
+  margin-top: 1rem;
+  grid-area: description;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: 1fr;
+  grid-template-areas: 'desc1 desc2 desc3 desc4 desc5';
+  width: var(--desc-width);
+}
+
+.controls {
+  margin-top: 1rem;
+  justify-content: end;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+}
+
+div.control {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--color-two);
+  border: solid;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+label {
+  padding: 0.3rem;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+label:hover>.control {
+  filter: ;
+  invert(90%)-webkit-filter: invert(90%) brightness(110%);
+  -moz-filter: invert(90%);
+  -webkit-filter: invert(90%);
+}
+
+.desc,
+.slide {
+  width: 0%;
+  height: 5rem;
+}
+
+.desc {
+  font-size: 1.8rem;
+}
+
+#slide1:checked~.slider>.slide1,
+#slide2:checked~.slider>.slide2,
+#slide3:checked~.slider>.slide3,
+#slide4:checked~.slider>.slide4,
+#slide5:checked~.slider>.slide5 {
+  width: var(--mem-width);
+}
+
+
+
+#slide1:checked~.slider~.caption>.description>.desc1,
+#slide2:checked~.slider~.caption>.description>.desc2,
+#slide3:checked~.slider~.caption>.description>.desc3,
+#slide4:checked~.slider~.caption>.description>.desc4,
+#slide5:checked~.slider~.caption>.description>.desc5 {
+  width: var(--desc-width);
+}
+
+#slide1:checked~.slider~.caption>.controls>.control1>.control,
+#slide2:checked~.slider~.caption>.controls>.control2>.control,
+#slide3:checked~.slider~.caption>.controls>.control3>.control,
+#slide4:checked~.slider~.caption>.controls>.control4>.control,
+#slide5:checked~.slider~.caption>.controls>.control5>.control {
+  background: none;
+}
+
+
+
+
+/*  Grid Areas */
+.controls {
+  grid-area: 'controls';
+}
+
+.slide1 {
+  background-image: URL(./assets/img/ihaveapaws.png);
+  grid-area: slide1;
+}
+
+.slide2 {
+  background-image: URL(./assets/img/cute-paws.png);
+  grid-area: slide2;
+}
+
+.slide3 {
+  background-image: URL(./assets/img/paws-jaws.png);
+  grid-area: slide3;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: contain;
+}
+
+.slide4 {
+  background-image: URL(./assets/img/jelly-paws.png);
+  grid-area: slide4;
+}
+
+.slide5 {
+  background-image: URL(./assets/img/teddy-paws.png);
+  grid-area: slide5;
+}
+
+.desc1 {
+  grid-area: desc1;
+}
+
+.desc2 {
+  grid-area: desc2;
+}
+
+.desc3 {
+  grid-area: desc3;
+}
+
+.desc4 {
+  grid-area: desc4;
+}
+
+.desc5 {
+  grid-area: desc5;
+}
+
+#radio1 {
+  grid-area: radio1;
+}
+
+#radio2 {
+  grid-area: radio2;
+}
+
+#radio3 {
+  grid-area: radio3;
+}
+
+#radio4 {
+  grid-area: radio4;
+}
+
+#radio5 {
+  grid-area: radio5;
 }
