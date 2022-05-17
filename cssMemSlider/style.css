@@ -165,7 +165,7 @@ label:active>.control {
   width: var(--mem-width);
   height: var(--mem-width);
   opacity: 0;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
   transform: translateZ(0);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   transform: scale(0);
@@ -184,7 +184,7 @@ label:active>.control {
 #slide5:checked~.slider>.slide5 {
   width: var(--mem-width);
   transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
   opacity: 1;
   transform: scale(1);
   transition: opacity var(--slide-duration) ease-in-out, transform var(--slide-duration) ease;
@@ -205,7 +205,7 @@ label:active>.control {
 #slide5:not(:checked)~.slider>.slide5 {
   opacity: 0;
   transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
   transition: opacity var(--slide-duration) ease-out, transform var(--slide-duration) cubic-bezier(0, -0.35, 1, -1);
   -webkit-transition: opacity var(--slide-duration) ease-out, transform var(--slide-duration) cubic-bezier(0, -0.35, 1, -1);
   -moz-transition: opacity var(--slide-duration) ease-out, transform var(--slide-duration) cubic-bezier(0, -0.35, 1, -1);
@@ -233,7 +233,7 @@ label:active>.control {
   -moz-transform: translateY(-4rem);
   -ms-transform: translateY(-4rem);
   -o-transform: translateY(-4rem);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
   transform: translateZ(0);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
