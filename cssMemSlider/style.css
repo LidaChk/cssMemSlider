@@ -459,16 +459,16 @@ label:active>.control {
     padding: 0.5rem;
   }
 
-  /*   label:hover:not(:active)>.control {
+  /*   label:visited>.control {
     filter: none;
-  } */
-
-  label:active>.control {
+  }
+ */
+  /*   label:active>.control {
     filter: invert(90%);
     -webkit-filter: invert(90%);
     -moz-filter: invert(90%);
     -webkit-filter: invert(90%);
-  }
+  } */
 
 }
 
