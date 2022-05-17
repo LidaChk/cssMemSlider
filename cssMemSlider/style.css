@@ -125,18 +125,17 @@ span.control {
   display: block;
   width: 0.8rem;
   height: 0.8rem;
-  background: var(--color-two);
-  border: solid;
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+  background: url(./assets/img/paw-fill.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+
 }
 
 label {
@@ -336,7 +335,10 @@ label:active>.control {
 #slide3:checked~.slider~.caption>.controls>.control3>.control,
 #slide4:checked~.slider~.caption>.controls>.control4>.control,
 #slide5:checked~.slider~.caption>.controls>.control5>.control {
-  background: none;
+  background: url(./assets/img/paw-line.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 
@@ -457,9 +459,9 @@ label:active>.control {
     padding: 0.5rem;
   }
 
-  label:hover>.control {
+  /*   label:hover:not(:active)>.control {
     filter: none;
-  }
+  } */
 
   label:active>.control {
     filter: invert(90%);
