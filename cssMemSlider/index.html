@@ -11,6 +11,24 @@
 </head>
 
 <body>
+  <defs>
+    <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
+      primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+      <feMorphology operator="dilate" radius="4 4" in="SourceAlpha" result="morphology" />
+      <feFlood flood-color="#30597E" flood-opacity="1" result="flood" />
+      <feComposite in="flood" in2="morphology" operator="in" result="composite" />
+      <feComposite in="composite" in2="SourceAlpha" operator="out" result="composite1" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.01 0.02" numOctaves="1" seed="0" stitchTiles="stitch"
+        result="turbulence" />
+      <feDisplacementMap in="composite1" in2="turbulence" scale="17" xChannelSelector="A" yChannelSelector="A"
+        result="displacementMap" />
+      <feMerge result="merge">
+        <feMergeNode in="SourceGraphic" result="mergeNode" />
+        <feMergeNode in="displacementMap" result="mergeNode1" />
+      </feMerge>
+    </filter>
+  </defs>
+
   <div class="wrapper">
     <input type="radio" name="point" id="slide1" checked>
     <input type="radio" name="point" id="slide2">
@@ -36,51 +54,53 @@
     </div>
     <div class="caption ">
       <div class="description">
-        <div class="desc desc1 ">I can't. I have paws.</div>
-        <div class="desc desc2">I have a paws?!</div>
-        <div class="desc desc3">Cute monster.</div>
-        <div class="desc desc4">Cat paws are made of jelly beans!</div>
-        <div class="desc desc5">Cat paws are teddy bears.</div>
-        <div class="desc desc6 ">OMG So Cute...</div>
-        <div class="desc desc7">Cute and fluffy cat paws.</div>
-        <div class="desc desc8">This is my opinion of your opinion!</div>
-        <div class="desc desc9">It's Alive!</div>
-        <div class="desc desc10">Unique paw beans combination.</div>
+        <text class="desc desc1 x=" 50%" y="50%" dy=".35em" text-anchor="middle"">I can't. I have paws.</text>
+        <div class=" desc desc2">I have a paws?!
       </div>
-      <div class="controls">
-        <label for="slide1" class="control1">
-          <span class="control control1 "></span>
-        </label>
-        <label for="slide2" class="control2">
-          <span class="control control2 "></span>
-        </label>
-        <label for="slide3" class="control3">
-          <span class="control control3 "></span>
-        </label>
-        <label for="slide4" class="control4">
-          <span class="control control4 "></span>
-        </label>
-        <label for="slide5" class="control5">
-          <span class="control control5 "></span>
-        </label>
-        <label for="slide6" class="control6">
-          <span class="control control6 "></span>
-        </label>
-        <label for="slide7" class="control7">
-          <span class="control control7 "></span>
-        </label>
-        <label for="slide8" class="control8">
-          <span class="control control8 "></span>
-        </label>
-        <label for="slide9" class="control9">
-          <span class="control control9 "></span>
-        </label>
-        <label for="slide10" class="control10">
-          <span class="control control10 "></span>
-        </label>
-      </div>
+      <div class="desc desc3">Cute monster.</div>
+      <div class="desc desc4">Cat paws are made of jelly beans!</div>
+      <div class="desc desc5">Cat paws are teddy bears.</div>
+      <div class="desc desc6 ">OMG So Cute...</div>
+      <div class="desc desc7">Cute and fluffy cat paws.</div>
+      <div class="desc desc8">This is my opinion of your opinion!</div>
+      <div class="desc desc9">It's Alive!</div>
+      <div class="desc desc10">Unique paw beans combination.</div>
+    </div>
+    <div class="controls">
+      <label for="slide1" class="control1">
+        <span class="control control1 "></span>
+      </label>
+      <label for="slide2" class="control2">
+        <span class="control control2 "></span>
+      </label>
+      <label for="slide3" class="control3">
+        <span class="control control3 "></span>
+      </label>
+      <label for="slide4" class="control4">
+        <span class="control control4 "></span>
+      </label>
+      <label for="slide5" class="control5">
+        <span class="control control5 "></span>
+      </label>
+      <label for="slide6" class="control6">
+        <span class="control control6 "></span>
+      </label>
+      <label for="slide7" class="control7">
+        <span class="control control7 "></span>
+      </label>
+      <label for="slide8" class="control8">
+        <span class="control control8 "></span>
+      </label>
+      <label for="slide9" class="control9">
+        <span class="control control9 "></span>
+      </label>
+      <label for="slide10" class="control10">
+        <span class="control control10 "></span>
+      </label>
     </div>
   </div>
+  </div>
+
 </body>
 
 </html>

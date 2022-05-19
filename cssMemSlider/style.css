@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
 
 :root {
   --color-one: #b5ead7;
@@ -27,8 +27,10 @@
 
 
 body {
-  background-image: var(--bg-gradient);
+  background: url(./assets/img/paw-bg.png), var(--bg-gradient);
   color: var(--color-two);
+  background-blend-mode: soft-light;
+
   font-family: 'Rubik', sans-serif;
 }
 
@@ -43,8 +45,8 @@ body {
   width: var(--mem-width);
   height: 100vh;
   opacity: 1;
-  animation: transparent 1.3s ease-in;
-  -webkit-animation: transparent 1.3s ease-in;
+  animation: transparent 1.5s ease-in;
+  -webkit-animation: transparent 1.5s ease-in;
 }
 
 @keyframes transparent {
@@ -94,6 +96,17 @@ input {
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
   overflow: hidden;
+  background: radial-gradient(circle,
+      #dedbff,
+      #cbe0ff,
+      #bae4ff,
+      #aee8f9,
+      #abeaec,
+      #a6e5e7,
+      #a1e1e3,
+      #9cdcde,
+      #93d0e1,
+      #94c2df)
 }
 
 .caption {
@@ -286,6 +299,7 @@ label:active>.control {
   width: var(--desc-width);
   height: 4rem;
   font-size: 1.8rem;
+  font-weight: 700;
   overflow: hidden;
   transform: translateY(-4rem);
   -webkit-transform: translateY(-4rem);
@@ -418,6 +432,8 @@ label:active>.control {
   grid-area: controls;
 }
 
+/* #region  slide defs */
+
 .slide1 {
   background-image: URL(./assets/img/ihaveapaws.png);
 }
@@ -435,10 +451,12 @@ label:active>.control {
 
 .slide4 {
   background-image: URL(./assets/img/jelly-paws.png);
+
 }
 
 .slide5 {
   background-image: URL(./assets/img/teddy-paws.png);
+
 }
 
 .slide6 {
@@ -462,6 +480,8 @@ label:active>.control {
 .slide10 {
   background-image: URL(./assets/img/unique-paws.png);
 }
+
+/* #endregion */
 
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
@@ -493,7 +513,7 @@ label:active>.control {
 
   .description,
   .desc {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .desc {
@@ -545,5 +565,6 @@ label:active>.control {
 .filter {
   filter: brightness(0) saturate(100%) invert(77%) sepia(19%) saturate(213%) hue-rotate(108deg) brightness(88%) contrast(83%);
 }
+
 
 /* #endregion */
