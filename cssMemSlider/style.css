@@ -21,7 +21,7 @@
       #a6a4ca);
   --mem-width: 40rem;
   --desc-width: 30rem;
-  --slide-duration: 2s;
+  --slide-duration: 1.3s;
 
 }
 
@@ -42,16 +42,34 @@ body {
   margin: 0rem auto;
   width: var(--mem-width);
   height: 100vh;
+  opacity: 1;
+  animation: transparent 1.3s ease-in;
+  -webkit-animation: transparent 1.3s ease-in;
 }
 
+@keyframes transparent {
+
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 .wrapper {
   display: grid;
   align-content: center;
   justify-content: center;
-  grid-template-rows: repeat(5, 0rem) var(--mem-width) 6rem;
+  grid-template-rows:
+    /* repeat(5, 0rem) */
+    var(--mem-width) 6rem;
   grid-template-columns: 1fr;
-  grid-template-areas: 'radio1''radio2''radio3''radio4''radio5''slider''caption';
+  grid-template-areas:
+    /* 'radio1''radio2''radio3''radio4''radio5' */
+    'slider''caption';
 
 }
 
@@ -68,7 +86,7 @@ input {
   height: var(--mem-width);
   grid-area: slider;
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(10, 0);
   grid-template-rows: 1fr;
   border-radius: 2rem;
   -webkit-border-radius: 2rem;
@@ -105,7 +123,7 @@ input {
   grid-area: description;
   display: grid;
   align-content: start;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(10, 0);
   grid-template-rows: 1fr;
   /*   grid-template-areas: 'desc1 desc2 desc3 desc4 desc5'; */
   width: var(--desc-width);
@@ -165,12 +183,11 @@ label:active>.control {
 
 /* #region  Slider Sliding */
 .slides {
-  width: var(--mem-width);
+  width: 0;
   height: var(--mem-width);
   opacity: 0;
   box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
   transform: translateZ(0);
-
 }
 
 
@@ -179,7 +196,12 @@ label:active>.control {
 #slide2:checked~.slider>.slide2,
 #slide3:checked~.slider>.slide3,
 #slide4:checked~.slider>.slide4,
-#slide5:checked~.slider>.slide5 {
+#slide5:checked~.slider>.slide5,
+#slide6:checked~.slider>.slide6,
+#slide7:checked~.slider>.slide7,
+#slide8:checked~.slider>.slide8,
+#slide9:checked~.slider>.slide9,
+#slide10:checked~.slider>.slide10 {
   width: var(--mem-width);
   transform: translateZ(0);
   box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
@@ -198,7 +220,14 @@ label:active>.control {
 #slide2:not(:checked)~.slider>.slide2,
 #slide3:not(:checked)~.slider>.slide3,
 #slide4:not(:checked)~.slider>.slide4,
-#slide5:not(:checked)~.slider>.slide5 {
+#slide5:not(:checked)~.slider>.slide5,
+#slide6:not(:checked)~.slider>.slide6,
+#slide7:not(:checked)~.slider>.slide7,
+#slide8:not(:checked)~.slider>.slide8,
+#slide9:not(:checked)~.slider>.slide9,
+#slide10:not(:checked)~.slider>.slide10 {
+  width: 0;
+
   opacity: 0;
   transform: translateZ(0);
   box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0);
@@ -214,12 +243,16 @@ label:active>.control {
 
 @keyframes slide-off {
   from {
+
+    width: var(--mem-width);
     -webkit-mask-position: bottom;
     mask-position: bottom;
     opacity: 1;
   }
 
   to {
+
+    width: var(--mem-width);
     -webkit-mask-position: top;
     mask-position: top;
     opacity: 0.8;
@@ -228,12 +261,16 @@ label:active>.control {
 
 @keyframes slide-on {
   from {
+
+    width: var(--mem-width);
     -webkit-mask-position: top;
     mask-position: top;
     opacity: 0.8;
   }
 
   to {
+
+    width: var(--mem-width);
     -webkit-mask-position: bottom;
     mask-position: bottom;
     opacity: 1;
@@ -264,7 +301,12 @@ label:active>.control {
 #slide2:checked~.caption>.description>.desc2,
 #slide3:checked~.caption>.description>.desc3,
 #slide4:checked~.caption>.description>.desc4,
-#slide5:checked~.caption>.description>.desc5 {
+#slide5:checked~.caption>.description>.desc5,
+#slide10:checked~.caption>.description>.desc10,
+#slide6:checked~.caption>.description>.desc6,
+#slide7:checked~.caption>.description>.desc7,
+#slide8:checked~.caption>.description>.desc8,
+#slide9:checked~.caption>.description>.desc9 {
   opacity: 1;
   height: 4rem;
   animation-name: font-on;
@@ -281,7 +323,12 @@ label:active>.control {
 #slide2:not(:checked)~.slider~.caption>.description>.desc2,
 #slide3:not(:checked)~.slider~.caption>.description>.desc3,
 #slide4:not(:checked)~.slider~.caption>.description>.desc4,
-#slide5:not(:checked)~.slider~.caption>.description>.desc5 {
+#slide5:not(:checked)~.slider~.caption>.description>.desc5,
+#slide10:not(:checked)~.slider~.caption>.description>.desc10,
+#slide6:not(:checked)~.slider~.caption>.description>.desc6,
+#slide7:not(:checked)~.slider~.caption>.description>.desc7,
+#slide8:not(:checked)~.slider~.caption>.description>.desc8,
+#slide9:not(:checked)~.slider~.caption>.description>.desc9 {
   opacity: 0;
   animation-name: font-off;
   animation-duration: var(--slide-duration);
@@ -351,7 +398,12 @@ label:active>.control {
 #slide2:checked~.slider~.caption>.controls>.control2>.control,
 #slide3:checked~.slider~.caption>.controls>.control3>.control,
 #slide4:checked~.slider~.caption>.controls>.control4>.control,
-#slide5:checked~.slider~.caption>.controls>.control5>.control {
+#slide5:checked~.slider~.caption>.controls>.control5>.control,
+#slide10:checked~.slider~.caption>.controls>.control10>.control,
+#slide6:checked~.slider~.caption>.controls>.control6>.control,
+#slide7:checked~.slider~.caption>.controls>.control7>.control,
+#slide8:checked~.slider~.caption>.controls>.control8>.control,
+#slide9:checked~.slider~.caption>.controls>.control9>.control {
   background: url(./assets/img/paw-line.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -368,73 +420,47 @@ label:active>.control {
 
 .slide1 {
   background-image: URL(./assets/img/ihaveapaws.png);
-  grid-area: slide1;
 }
 
 .slide2 {
   background-image: URL(./assets/img/cute-paws.png);
-  grid-area: slide2;
-
 }
 
 .slide3 {
   background-image: URL(./assets/img/paws-jaws.png);
-  grid-area: slide3;
   background-repeat: repeat;
   background-position: center;
   background-size: contain;
-
 }
 
 .slide4 {
   background-image: URL(./assets/img/jelly-paws.png);
-  grid-area: slide4;
-
 }
 
 .slide5 {
   background-image: URL(./assets/img/teddy-paws.png);
-  grid-area: slide5;
 }
 
-.desc1 {
-  grid-area: desc1;
+.slide6 {
+  background-image: URL(./assets/img/cute-cat.png);
+  background-size: 38rem;
 }
 
-.desc2 {
-  grid-area: desc2;
+.slide7 {
+  background-image: URL(./assets/img/comics-paw.png);
+  background-size: 38rem;
 }
 
-.desc3 {
-  grid-area: desc3;
+.slide8 {
+  background-image: URL(./assets/img/opinion-paws.png);
 }
 
-.desc4 {
-  grid-area: desc4;
+.slide9 {
+  background-image: URL(./assets/img/its-alive.png);
 }
 
-.desc5 {
-  grid-area: desc5;
-}
-
-#radio1 {
-  grid-area: radio1;
-}
-
-#radio2 {
-  grid-area: radio2;
-}
-
-#radio3 {
-  grid-area: radio3;
-}
-
-#radio4 {
-  grid-area: radio4;
-}
-
-#radio5 {
-  grid-area: radio5;
+.slide10 {
+  background-image: URL(./assets/img/unique-paws.png);
 }
 
 
@@ -462,7 +488,7 @@ label:active>.control {
   }
 
   .wrapper {
-    grid-template-rows: repeat(5, 0rem) var(--mem-width) 11rem;
+    grid-template-rows: var(--mem-width) 11rem;
   }
 
   .description,
@@ -485,6 +511,10 @@ label:active>.control {
 
   label {
     padding: 0.7rem;
+  }
+
+  .controls {
+    grid-template-columns: repeat(10, auto);
   }
 
 }
